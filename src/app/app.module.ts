@@ -1,16 +1,25 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { HttpClientModule } from "@angular/common/http";
 
-import { AppComponent } from './app.component';
+// Configuracion sockets
+import { SocketIoModule, SocketIoConfig } from "ngx-socket-io";
+const config: SocketIoConfig = { url: "http://localhost:3000", options: {} };
+
+import { WebSocketService } from "./services/web-socket.service";
+
+import { AppComponent } from "./app.component";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    SocketIoModule.forRoot(config),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [WebSocketService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
