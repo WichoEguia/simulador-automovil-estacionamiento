@@ -15,4 +15,9 @@ Levantar servidor
 ng server -o
 ```
 
-El servidor se levantará en **localhost:4200**.
+La aplicación se levantará en **localhost:4200**.
+
+## Aplicacion de escritorio
+```
+npm run electron
+```
