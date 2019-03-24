@@ -1,6 +1,8 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 // Configuracion sockets
 import { SocketIoModule, SocketIoConfig } from "ngx-socket-io";
@@ -29,7 +31,9 @@ import { NavegacionComponent } from './template/navegacion/navegacion.component'
     BrowserModule,
     SocketIoModule.forRoot(config),
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule.forRoot(),
+    FormsModule
   ],
   providers: [
     WebSocketService
