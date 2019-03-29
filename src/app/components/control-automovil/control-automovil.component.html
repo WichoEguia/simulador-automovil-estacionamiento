@@ -2,6 +2,10 @@
   Crear auto
 </button>
 
+<div class="alert alert-danger mt-1" role="alert" *ngIf="automoviles.length === 0">
+  No hay autos aún.
+</div>
+
 <div id="automoviles" class="mt-2">
   <ngb-tabset type="pills">
     <ngb-tab *ngFor="let auto of automoviles" [title]="auto.clave">
@@ -11,3 +15,5 @@
     </ngb-tab>
   </ngb-tabset>
 </div>
+
+<!-- aos library -->
