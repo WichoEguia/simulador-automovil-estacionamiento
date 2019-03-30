@@ -4,10 +4,4 @@
   <router-outlet></router-outlet>
 </div>
 
-<footer class="fixed-bottom bg-dark mt-5 text-right">
-  <i class="fas fa-circle" [ngClass]="_webSocket.socketConectado ? 'text-success' : 'text-danger'"></i>
-
-  Servidor
-  <span *ngIf="_webSocket.socketConectado">Conectado</span>
-  <span *ngIf="!_webSocket.socketConectado">Desconectado</span>
-</footer>
+<app-footer></app-footer>

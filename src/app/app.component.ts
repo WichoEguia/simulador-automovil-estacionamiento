@@ -9,7 +9,5 @@ import { WebSocketService } from './services/web-socket.service';
 export class AppComponent {
   title = 'simuladorAutoApplication';
 
-  constructor(
-    public _webSocket: WebSocketService
-  ) { }
+  constructor() { }
 }

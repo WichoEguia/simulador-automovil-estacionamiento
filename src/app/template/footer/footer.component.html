@@ -1,0 +1,4 @@
+<footer class="fixed-bottom bg-dark mt-5 text-right">
+  <span class="estatusServidor bg-success" *ngIf="_webSocket.socketConectado">Conectado</span>
+  <span class="estatusServidor bg-danger" *ngIf="!_webSocket.socketConectado">Desconectado</span>
+</footer>

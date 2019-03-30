@@ -20,6 +20,7 @@ import { AppComponent } from './app.component';
 import { ControlAutomovilComponent } from './components/control-automovil/control-automovil.component';
 import { PanelEstacionamientoComponent } from './components/panel-estacionamiento/panel-estacionamiento.component';
 import { NavegacionComponent } from './template/navegacion/navegacion.component';
+import { FooterComponent } from './template/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { NavegacionComponent } from './template/navegacion/navegacion.component'
     ControlAutomovilComponent,
     PanelEstacionamientoComponent,
     NavegacionComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
