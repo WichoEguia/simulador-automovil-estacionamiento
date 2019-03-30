@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TemplateService } from 'src/app/services/template.service';
 
 @Component({
   selector: 'app-panel-estacionamiento',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PanelEstacionamientoComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public templateService: TemplateService
+  ) { }
 
   ngOnInit() {
+    this.templateService.broadcastTemplateChange('Estacionamiento');
   }
 
 }
