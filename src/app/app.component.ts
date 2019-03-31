@@ -8,6 +8,11 @@ import { WebSocketService } from './services/web-socket.service';
 })
 export class AppComponent {
   title = 'simuladorAutoApplication';
+  sideBarActive = false;
 
   constructor() { }
+
+  abrirSideBar() {
+    this.sideBarActive = ! this.sideBarActive;
+  }
 }

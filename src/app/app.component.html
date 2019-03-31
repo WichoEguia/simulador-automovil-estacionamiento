@@ -1,4 +1,6 @@
-<app-navegacion></app-navegacion>
+<!-- <app-navegacion></app-navegacion> -->
+<app-sidebar-toggle [init]="false" (abrirSideBar)="abrirSideBar()"></app-sidebar-toggle>
+<app-sidebar [class.active]="sideBarActive"></app-sidebar>
 
 <div class="container mt-5 mb-5">
   <router-outlet></router-outlet>

@@ -1,0 +1,22 @@
+<div id="sidebar">
+  <ul>
+    <li routerLinkActive="active">
+      <p>Run-Run-Matico</p>
+      <a href="javascript:void(0)">
+        {{ templateService.vistaTemplate | async }}
+      </a>
+    </li>
+
+    <li routerLinkActive="active">
+      <a routerLink="/panel-estacionamiento">
+        Estacionamiento
+      </a>
+    </li>
+
+    <li routerLinkActive="active">
+      <a routerLink="/control-automovil">
+        Automovil
+      </a>
+    </li>
+  </ul>
+</div>

@@ -21,6 +21,8 @@ import { ControlAutomovilComponent } from './components/control-automovil/contro
 import { PanelEstacionamientoComponent } from './components/panel-estacionamiento/panel-estacionamiento.component';
 import { NavegacionComponent } from './template/navegacion/navegacion.component';
 import { FooterComponent } from './template/footer/footer.component';
+import { SidebarToggleComponent } from './template/sidebar-toggle/sidebar-toggle.component';
+import { SidebarComponent } from './template/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { FooterComponent } from './template/footer/footer.component';
     PanelEstacionamientoComponent,
     NavegacionComponent,
     FooterComponent,
+    SidebarToggleComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
