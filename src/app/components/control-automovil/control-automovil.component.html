@@ -12,6 +12,10 @@
     <ngb-tab *ngFor="let auto of automoviles" [title]="auto.clave">
       <ng-template ngbTabContent>
         <pre>{{ auto | json }}</pre>
+        <hr>
+
+        <app-panel-estacionamiento-auto></app-panel-estacionamiento-auto>
+        
       </ng-template>
     </ngb-tab>
   </ngb-tabset>

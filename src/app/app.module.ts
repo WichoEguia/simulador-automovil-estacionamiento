@@ -23,6 +23,7 @@ import { NavegacionComponent } from './template/navegacion/navegacion.component'
 import { FooterComponent } from './template/footer/footer.component';
 import { SidebarToggleComponent } from './template/sidebar-toggle/sidebar-toggle.component';
 import { SidebarComponent } from './template/sidebar/sidebar.component';
+import { PanelEstacionamientoAutoComponent } from './components/control-automovil/panel-estacionamiento-auto.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { SidebarComponent } from './template/sidebar/sidebar.component';
     FooterComponent,
     SidebarToggleComponent,
     SidebarComponent,
+    PanelEstacionamientoAutoComponent,
   ],
   imports: [
     BrowserModule,

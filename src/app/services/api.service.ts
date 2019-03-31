@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class AutomovilService {
+export class ApiService {
   private url = 'http://localhost:3000';
 
   constructor(
@@ -17,5 +17,9 @@ export class AutomovilService {
 
   getAutos() {
     return this.http.get(`${this.url}/getAutos`);
+  }
+
+  getEstacionamiento() {
+    return this.http.get(`${this.url}/getEstacionamiento`);
   }
 }

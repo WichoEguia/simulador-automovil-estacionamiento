@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AutomovilService } from './../../services/automovil.service';
+import { ApiService } from '../../services/api.service';
 import { TemplateService } from 'src/app/services/template.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class ControlAutomovilComponent implements OnInit {
   automoviles = [];
 
   constructor(
-    public autoS_: AutomovilService,
+    public autoS_: ApiService,
     public templateService: TemplateService
   ) { }
 
