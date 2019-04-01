@@ -1,0 +1,15 @@
+<h2>Selecciona un lugar</h2>
+
+<div id="panel-estacionamiento-auto">
+    <div
+        class="cajon btn btn-info"
+        *ngFor="let cajon of estacionamiento" 
+        (click)="selectCajon(cajon.idx)"
+        [ngClass]=" {
+                        'seleccionado': cajon.estatus === 'seleccionado',
+                        'btn-warning': cajon.clave === auto.cajonRecomendado
+                    }"
+        >
+        {{ cajon.clave }}
+    </div>
+</div>

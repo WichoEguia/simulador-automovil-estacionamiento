@@ -3,6 +3,8 @@
   LLEGA AUTO
 </button>
 
+<h2>Información del automovil</h2>
+
 <div class="alert alert-danger mt-1" role="alert" *ngIf="automoviles.length === 0">
   No hay autos aún.
 </div>
@@ -14,7 +16,7 @@
         <pre>{{ auto | json }}</pre>
         <hr>
 
-        <app-panel-estacionamiento-auto></app-panel-estacionamiento-auto>
+        <app-panel-estacionamiento-auto [auto]=auto></app-panel-estacionamiento-auto>
         
       </ng-template>
     </ngb-tab>
