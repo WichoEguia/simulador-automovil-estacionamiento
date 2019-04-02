@@ -1,4 +1,4 @@
-<button class="btn btn-success" (click)="addAuto()">
+<button class="btn btn-outline-success" (click)="addAuto()">
   <i class="fas fa-car"></i>
   LLEGA AUTO
 </button>
@@ -16,7 +16,7 @@
         <pre>{{ auto | json }}</pre>
         <hr>
 
-        <app-panel-estacionamiento-auto [auto]=auto></app-panel-estacionamiento-auto>
+        <app-panel-estacionamiento-auto [auto]=auto (autoActualizado)="actualizaAutomoviles($event)"></app-panel-estacionamiento-auto>
         
       </ng-template>
     </ngb-tab>

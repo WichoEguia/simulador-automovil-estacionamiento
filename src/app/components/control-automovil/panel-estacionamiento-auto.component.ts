@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -8,24 +8,42 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class PanelEstacionamientoAutoComponent implements OnInit {
   @Input() auto;
+
+  @Output() autoActualizado: EventEmitter<any> = new EventEmitter();
+
   estacionamiento = [];
 
   constructor(
-    public estacionamientoS_: ApiService
+    public api: ApiService
   ) { }
 
   ngOnInit() {
-    this.estacionamientoS_.getEstacionamiento().subscribe(
+    this.api.getEstacionamiento().subscribe(
       (res: any) => this.estacionamiento = res.estacionamiento,
       (err: any) => console.log(err)
     );
   }
 
-  selectCajon(idx) {
-    for (let i = 0; i < this.estacionamiento.length; i++) {
+  selectCajon(auto, idx) {
+    if (auto.estacionado) { return 0; }
+    if (this.estacionamiento[idx].estatus === 'ocupado') { return 0; }
+
+    const autosSeleccionados = this.estacionamiento.filter(cjn => cjn.estatus === 'seleccionado');
+    for (let i = 0; i < autosSeleccionados.length; i++) {
       this.estacionamiento[i].estatus = 'disponible';
     }
 
     this.estacionamiento[idx].estatus = 'seleccionado';
+  }
+
+  ocuparCajon(auto) {
+    const cajon = this.estacionamiento.find(cjn => cjn.estatus === 'seleccionado');
+    this.api.ocuparCajonEstacionamiento(auto.clave, cajon.clave).subscribe(
+      (res: any) => {
+        this.estacionamiento = res.respuesta_cajon.estacionamiento;
+        this.autoActualizado.emit(res.respuesta_auto.auto);
+      },
+      (err: any) => console.log(err)
+    );
   }
 }

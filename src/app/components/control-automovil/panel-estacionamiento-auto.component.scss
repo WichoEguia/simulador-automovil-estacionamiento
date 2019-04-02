@@ -12,4 +12,9 @@
     &.seleccionado {
         border-color: #22db4d;
     }
+
+    &.ocupado {
+        background: #585858;
+        border-color: #585858;
+    }
 }

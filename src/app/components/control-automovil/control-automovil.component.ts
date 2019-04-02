@@ -30,4 +30,12 @@ export class ControlAutomovilComponent implements OnInit {
       (err: any) => console.log(err)
     );
   }
+
+  actualizaAutomoviles(auto) {
+    const idx = this.automoviles.indexOf(
+      this.automoviles.find(a => a.clave === auto.clave)
+    );
+
+    this.automoviles[idx] = auto;
+  }
 }

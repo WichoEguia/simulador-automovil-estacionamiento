@@ -22,4 +22,13 @@ export class ApiService {
   getEstacionamiento() {
     return this.http.get(`${this.url}/getEstacionamiento`);
   }
+
+  ocuparCajonEstacionamiento(auto, cajon) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    const params = JSON.stringify({ auto, cajon });
+
+    return this.http.post(`${this.url}/ocuparCajonEstacionamiento`, params, { headers });
+  }
 }
