@@ -7,7 +7,7 @@ import { PanelEstacionamientoComponent } from './components/panel-estacionamient
 const routes: Routes = [
     { path: 'control-automovil', component: ControlAutomovilComponent },
     { path: 'panel-estacionamiento', component: PanelEstacionamientoComponent },
-    { path: '**', pathMatch: 'full', redirectTo: '/panel-estacionamiento' }
+    { path: '**', pathMatch: 'full', redirectTo: '/control-automovil' }
 ];
 
 @NgModule({

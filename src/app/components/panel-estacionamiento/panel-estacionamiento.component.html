@@ -1,3 +1,20 @@
-<p>
-  panel-estacionamiento works!
-</p>
+<h2>Estacionamiento</h2>
+
+<div id="paleta-indicadores">
+    <div>
+        <span class="indicador ocupado"></span>
+        <p>Cajón actualmente usado.</p>
+    </div>
+</div>
+
+<div id="panel-estacionamiento" class="mb-2">
+    <div
+        *ngFor              =   "let cajon of estacionamiento" 
+        class               =   "cajon btn btn-info"
+        [class.ocupado]     =   "cajon.estatus === 'ocupado'"
+        >
+        {{ cajon.clave }}
+    </div>
+</div>
+
+<hr class="mb-2">

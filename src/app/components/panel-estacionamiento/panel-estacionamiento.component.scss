@@ -1,0 +1,33 @@
+#panel-estacionamiento {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 20px;
+    grid-column-gap: 30px;
+
+    .cajon {
+        cursor: pointer;
+        border-width: 5px;
+
+        &.ocupado {
+            background: #22db4d;
+            border-color: #22db4d;
+            color: #fff;
+        }
+    }
+}
+
+#paleta-indicadores div {
+    display: flex;
+}
+
+.indicador {
+    display: block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 10px;
+    
+    &.ocupado {
+        background: #22db4d;
+    }
+}
