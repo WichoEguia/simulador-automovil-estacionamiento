@@ -10,11 +10,18 @@
     border-width: 5px;
 
     &.seleccionado {
-        border-color: #22db4d;
+        border-color: #22db4d !important;
     }
 
     &.ocupado {
         background: #585858;
         border-color: #585858;
+        color: #fff;
+    }
+
+    &.asignado {
+        background: #ffc107;
+        border-color: #ffc107;
+        color: #fff;
     }
 }

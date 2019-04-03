@@ -17,7 +17,9 @@ export class ControlAutomovilComponent implements OnInit {
 
   ngOnInit() {
     this.autoS_.getAutos().subscribe(
-      (res: any) => this.automoviles = res.autos,
+      (res: any) => {
+        this.automoviles = res.autos;
+      },
       (err: any) => console.log(err)
     );
 
@@ -26,7 +28,9 @@ export class ControlAutomovilComponent implements OnInit {
 
   addAuto() {
     this.autoS_.addAuto().subscribe(
-      (res: any) => this.automoviles = res.autos,
+      (res: any) => {
+        this.automoviles.push(res.auto);
+      },
       (err: any) => console.log(err)
     );
   }

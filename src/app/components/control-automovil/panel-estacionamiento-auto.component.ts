@@ -30,7 +30,7 @@ export class PanelEstacionamientoAutoComponent implements OnInit {
 
     const autosSeleccionados = this.estacionamiento.filter(cjn => cjn.estatus === 'seleccionado');
     for (let i = 0; i < autosSeleccionados.length; i++) {
-      this.estacionamiento[i].estatus = 'disponible';
+      autosSeleccionados[i].estatus = 'disponible';
     }
 
     this.estacionamiento[idx].estatus = 'seleccionado';

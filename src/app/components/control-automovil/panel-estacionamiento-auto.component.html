@@ -2,14 +2,14 @@
 
 <div id="panel-estacionamiento-auto" class="mb-2">
     <div
-        class       =   "cajon btn btn-info"
-        *ngFor      =   "let cajon of estacionamiento" 
-        (click)     =   "selectCajon(auto, cajon.idx)"
-        [ngClass]   =   "{
-                            'seleccionado': cajon.estatus === 'seleccionado',
-                            'btn-warning': cajon.clave === auto.cajonRecomendado,
-                            'ocupado': cajon.estatus === 'ocupado'
-                        }"
+        *ngFor              =   "let cajon of estacionamiento" 
+        (click)             =   "selectCajon(auto, cajon.idx)"
+        class               =   "cajon btn btn-info"
+        [class.asignado]    =   "cajon.clave === auto.cajonAsignado"
+        [ngClass]           =   "{
+                                    'seleccionado': cajon.estatus === 'seleccionado',
+                                    'ocupado': cajon.estatus === 'ocupado'
+                                }"
         >
         {{ cajon.clave }}
     </div>
