@@ -24,4 +24,38 @@
         border-color: #ffc107;
         color: #fff;
     }
+
+    &.ocupadoAuto {
+        background: #ed553b;
+        border-color: #ed553b;
+        color: #fff;
+    }
+}
+
+#paleta-indicadores div {
+    display: flex;
+}
+
+.indicador {
+    display: block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 10px;
+
+    &.seleccionado {
+        background: #22db4d !important;
+    }
+
+    &.ocupado {
+        background: #585858;
+    }
+
+    &.asignado {
+        background: #ffc107;
+    }
+
+    &.ocupadoAuto {
+        background: #ed553b;
+    }
 }

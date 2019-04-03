@@ -39,7 +39,7 @@ export class PanelEstacionamientoAutoComponent implements OnInit {
   ocuparCajon(auto) {
     const cajon = this.estacionamiento.find(cjn => cjn.estatus === 'seleccionado');
 
-    this.api.ocuparCajonEstacionamiento(auto._id, cajon._id).subscribe(
+    this.api.ocuparCajonEstacionamiento(auto, cajon).subscribe(
       (res: any) => {
         const idx = this.estacionamiento.indexOf(cajon);
         this.estacionamiento[idx] = res.cajon;

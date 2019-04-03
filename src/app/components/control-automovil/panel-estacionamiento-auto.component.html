@@ -1,5 +1,22 @@
 <h2>Selecciona un lugar</h2>
 
+<div id="paleta-indicadores">
+    <div>
+        <span class="indicador asignado"></span>
+        <p>Cajón automaticamente asignado.</p>
+    </div>
+    
+    <div>
+        <span class="indicador ocupado"></span>
+        <p>Cajón ocupado. No se puede seleccionar.</p>
+    </div>
+
+    <div>
+        <span class="indicador ocupadoAuto"></span>
+        <p>Cajón actualmente usado.</p>
+    </div>
+</div>
+
 <div id="panel-estacionamiento-auto" class="mb-2">
     <div
         *ngFor              =   "let cajon of estacionamiento" 
@@ -8,7 +25,8 @@
         [class.asignado]    =   "cajon.clave === auto.cajonAsignado"
         [ngClass]           =   "{
                                     'seleccionado': cajon.estatus === 'seleccionado',
-                                    'ocupado': cajon.estatus === 'ocupado'
+                                    'ocupado': cajon.estatus === 'ocupado',
+                                    'ocupadoAuto': cajon.ocupante === auto.clave
                                 }"
         >
         {{ cajon.clave }}
