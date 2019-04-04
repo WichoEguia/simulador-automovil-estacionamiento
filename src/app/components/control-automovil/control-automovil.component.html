@@ -13,6 +13,10 @@
   <ngb-tabset type="pills">
     <ngb-tab *ngFor="let auto of automoviles" [title]="auto.clave">
       <ng-template ngbTabContent>
+        <div class="alert alert-warning mt-1" role="alert" *ngIf="auto.salida != null">
+          El auto ya salió del estacionamiento
+        </div>
+
         <pre>{{ auto | json }}</pre>
         <hr>
 

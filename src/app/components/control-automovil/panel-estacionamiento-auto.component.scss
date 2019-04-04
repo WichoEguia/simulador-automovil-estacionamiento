@@ -43,8 +43,12 @@
     border-radius: 50%;
     margin-right: 10px;
 
+    &.disponible {
+        background: #17a2b8;
+    }
+
     &.seleccionado {
-        background: #22db4d !important;
+        background: #22db4d;
     }
 
     &.ocupado {

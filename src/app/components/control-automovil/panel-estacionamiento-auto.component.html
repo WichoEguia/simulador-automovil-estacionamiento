@@ -2,6 +2,11 @@
 
 <div id="paleta-indicadores">
     <div>
+        <span class="indicador disponible"></span>
+        <p>Cajón de estacionamiento disponible.</p>
+    </div>
+
+    <div>
         <span class="indicador asignado"></span>
         <p>Cajón automaticamente asignado.</p>
     </div>
@@ -34,11 +39,20 @@
 </div>
 
 <button
+        *ngIf       =   "!auto.estacionado"
         class       =   "btn btn-outline-success"
-        [disabled]  =   "auto.estacionado"
+        [disabled]  =   "auto.salida != null"
         (click)     =   "ocuparCajon(auto)"
         >
     SELECCIONAR CAJÓN
+</button>
+
+<button
+        *ngIf       =   "auto.estacionado"
+        class       =   "btn btn-outline-danger"
+        (click)     =   "dejarCajon(auto)"
+        >
+    ABANDONAR CAJÓN
 </button>
 
 <hr class="mb-2">

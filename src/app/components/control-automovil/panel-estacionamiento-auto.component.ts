@@ -25,7 +25,7 @@ export class PanelEstacionamientoAutoComponent implements OnInit {
   }
 
   selectCajon(auto, idx) {
-    if (auto.estacionado) { return 0; }
+    if (auto.estacionado || auto.salida != null) { return 0; }
     if (this.estacionamiento[idx].estatus === 'ocupado') { return 0; }
 
     const autosSeleccionados = this.estacionamiento.filter(cjn => cjn.estatus === 'seleccionado');
@@ -45,6 +45,20 @@ export class PanelEstacionamientoAutoComponent implements OnInit {
 
     this.api.ocuparCajonEstacionamiento(auto, cajon).subscribe(
       (res: any) => {
+        const idx = this.estacionamiento.indexOf(cajon);
+        this.estacionamiento[idx] = res.cajon;
+        this.autoActualizado.emit(res.auto);
+      },
+      (err: any) => console.log(err)
+    );
+  }
+
+  dejarCajon(auto) {
+    const cajon = this.estacionamiento.find(cjn => cjn.ocupante === auto.clave);
+
+    this.api.dejarCajonEstacionamiento(auto, cajon).subscribe(
+      (res: any) => {
+        // console.log(res);
         const idx = this.estacionamiento.indexOf(cajon);
         this.estacionamiento[idx] = res.cajon;
         this.autoActualizado.emit(res.auto);

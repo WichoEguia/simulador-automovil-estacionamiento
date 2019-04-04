@@ -31,4 +31,13 @@ export class ApiService {
 
     return this.http.post(`${this.url}/ocuparCajonEstacionamiento`, params, { headers });
   }
+
+  dejarCajonEstacionamiento(auto, cajon) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    const params = JSON.stringify({ auto, cajon });
+
+    return this.http.post(`${this.url}/dejarCajonEstacionamiento`, params, { headers });
+  }
 }
