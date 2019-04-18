@@ -40,6 +40,11 @@ export class ControlAutomovilComponent implements OnInit {
       this.automoviles.find(a => a.clave === auto.clave)
     );
 
-    this.automoviles[idx] = auto;
+    const newAuto          = this.automoviles[idx];
+    newAuto.cajonAsignado  = auto.cajonAsignado;
+    newAuto.cajonOcupado   = auto.cajonOcupado;
+    newAuto.estacionado    = auto.estacionado;
+    newAuto.llegada        = auto.llegada;
+    newAuto.salida         = auto.salida;
   }
 }
