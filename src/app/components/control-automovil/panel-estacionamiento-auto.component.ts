@@ -24,6 +24,8 @@ export class PanelEstacionamientoAutoComponent implements OnInit {
       (res: any) => this.estacionamiento = res.estacionamiento,
       (err: any) => console.log(err)
     );
+
+    this.escucharCambiosEstacionamiento();
   }
 
   selectCajon(auto, idx) {
@@ -72,5 +74,15 @@ export class PanelEstacionamientoAutoComponent implements OnInit {
 
   actualizaEstacionamiento(cajon) {
     this.wsService.emit('actualiza-estacionamiento', cajon);
+  }
+
+  private escucharCambiosEstacionamiento() {
+    this.wsService.listen('actualiza-estacionamiento-x2').subscribe(
+      (cajon: any) => {
+        // Encontrar index de cajon modificado
+        const idx = this.estacionamiento.findIndex(c => c.clave === cajon.clave);
+        this.estacionamiento[idx] = cajon;
+      }
+    );
   }
 }
