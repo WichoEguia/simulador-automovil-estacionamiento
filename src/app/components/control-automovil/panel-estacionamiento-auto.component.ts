@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import { WebSocketService } from 'src/app/services/web-socket.service';
 
 @Component({
   selector: 'app-panel-estacionamiento-auto',
@@ -14,7 +15,8 @@ export class PanelEstacionamientoAutoComponent implements OnInit {
   estacionamiento = [];
 
   constructor(
-    public api: ApiService
+    private api: ApiService,
+    private wsService: WebSocketService
   ) { }
 
   ngOnInit() {
@@ -48,6 +50,7 @@ export class PanelEstacionamientoAutoComponent implements OnInit {
         const idx = this.estacionamiento.indexOf(cajon);
         this.estacionamiento[idx] = res.cajon;
         this.autoActualizado.emit(res.auto);
+        this.actualizaEstacionamiento(res.cajon);
       },
       (err: any) => console.log(err)
     );
@@ -58,12 +61,16 @@ export class PanelEstacionamientoAutoComponent implements OnInit {
 
     this.api.dejarCajonEstacionamiento(auto, cajon).subscribe(
       (res: any) => {
-        // console.log(res);
         const idx = this.estacionamiento.indexOf(cajon);
         this.estacionamiento[idx] = res.cajon;
         this.autoActualizado.emit(res.auto);
+        this.actualizaEstacionamiento(res.cajon);
       },
       (err: any) => console.log(err)
     );
+  }
+
+  actualizaEstacionamiento(cajon) {
+    this.wsService.emit('actualiza-estacionamiento', cajon);
   }
 }
