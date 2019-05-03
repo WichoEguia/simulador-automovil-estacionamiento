@@ -2,6 +2,7 @@ $sidebarWidth: 250px;
 $sidebarColor: #222;
 $sidebarText: #eee;
 $sidebarAccent: #28a745;
+$reseteoAccent: #FD151B;
 
 :host {
     position: fixed;
@@ -48,7 +49,7 @@ $sidebarAccent: #28a745;
                 }
             }
 
-            &:not(:first-child) {
+            &:not(:first-child):not(:last-child) {
                 a {
                     color: $sidebarText;
                     display: block;
@@ -58,6 +59,20 @@ $sidebarAccent: #28a745;
 
                     &:hover {
                         background: $sidebarAccent;
+                    }
+                }
+            }
+
+            &:last-child {
+                a {
+                    color: $sidebarText;
+                    display: block;
+                    text-decoration: none;
+                    width: 100%;
+                    padding: 10px 0 10px 5px;
+
+                    &:hover {
+                        background: $reseteoAccent;
                     }
                 }
             }

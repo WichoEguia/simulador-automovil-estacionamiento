@@ -9,7 +9,6 @@ import { WebSocketService } from 'src/app/services/web-socket.service';
 })
 export class PanelEstacionamientoAutoComponent implements OnInit {
   @Input() auto;
-
   @Output() autoActualizado: EventEmitter<any> = new EventEmitter();
 
   estacionamiento = [];

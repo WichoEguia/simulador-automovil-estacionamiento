@@ -40,4 +40,16 @@ export class ApiService {
 
     return this.http.post(`${this.url}/dejarCajonEstacionamiento`, params, { headers });
   }
+
+  borrarAutos() {
+    return this.http.delete(`${this.url}/borrarAutos`);
+  }
+
+  borrarEstacionamiento() {
+    return this.http.delete(`${this.url}/borrarEstacionamiento`);
+  }
+
+  generarEstacionamiento() {
+    return this.http.post(`${this.url}/generarEstacionamiento`, {});
+  }
 }
