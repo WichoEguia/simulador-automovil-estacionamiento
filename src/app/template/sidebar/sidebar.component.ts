@@ -21,10 +21,12 @@ export class SidebarComponent implements OnInit {
   }
 
   reiniciaData() {
-    swal('¿Seguro de querer reiniciar la información?', {
+    swal({
+      title: '¡Cuidado!',
+      text: '¿Seguro de querer reiniciar la información?',
       icon: 'warning',
-      buttons: true,
       dangerMode: true,
+      buttons: ['cancelar', 'reiniciar']
     }).then((borrar) => {
       if (borrar) {
         this.apiService.borrarAutos().subscribe(
@@ -32,14 +34,14 @@ export class SidebarComponent implements OnInit {
             console.log(res);
 
             this.apiService.borrarEstacionamiento().subscribe(
-              (res: any) => {
-                console.log(res);
+              (res2: any) => {
+                console.log(res2);
 
                 this.apiService.generarEstacionamiento().subscribe(
-                  (res: any) => {
-                    console.log(res);
+                  (res3: any) => {
+                    console.log(res3);
 
-                    swal('La informaci{on ha sido eliminada.', {
+                    swal('La información ha sido reestablecida.', {
                       icon: 'success',
                     }).then(() => {
                       this.socket.emit('recargar');
