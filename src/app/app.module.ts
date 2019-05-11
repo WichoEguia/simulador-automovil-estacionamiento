@@ -24,6 +24,7 @@ import { FooterComponent } from './template/footer/footer.component';
 import { SidebarToggleComponent } from './template/sidebar-toggle/sidebar-toggle.component';
 import { SidebarComponent } from './template/sidebar/sidebar.component';
 import { PanelEstacionamientoAutoComponent } from './components/control-automovil/panel-estacionamiento-auto.component';
+import { ControlAutomovilCronometradoComponent } from './components/control-automovil-cronometrado/control-automovil-cronometrado.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { PanelEstacionamientoAutoComponent } from './components/control-automovi
     SidebarToggleComponent,
     SidebarComponent,
     PanelEstacionamientoAutoComponent,
+    ControlAutomovilCronometradoComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,4 +52,4 @@ import { PanelEstacionamientoAutoComponent } from './components/control-automovi
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

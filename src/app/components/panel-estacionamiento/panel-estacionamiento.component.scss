@@ -1,3 +1,5 @@
+$ocupado: #585858;
+
 #panel-estacionamiento {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -9,8 +11,8 @@
         border-width: 5px;
 
         &.ocupado {
-            background: #22db4d;
-            border-color: #22db4d;
+            background: $ocupado;
+            border-color: $ocupado;
             color: #fff;
         }
     }
@@ -28,6 +30,6 @@
     margin-right: 10px;
     
     &.ocupado {
-        background: #22db4d;
+        background: #17a2b8;
     }
 }

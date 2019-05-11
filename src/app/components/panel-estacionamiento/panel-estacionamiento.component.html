@@ -3,16 +3,12 @@
 <div id="paleta-indicadores">
     <div>
         <span class="indicador ocupado"></span>
-        <p>Cajón actualmente usado.</p>
+        <p>Cajón disponible.</p>
     </div>
 </div>
 
 <div id="panel-estacionamiento" class="mb-2">
-    <div
-        *ngFor              =   "let cajon of estacionamiento" 
-        class               =   "cajon btn btn-info"
-        [class.ocupado]     =   "cajon.estatus === 'ocupado'"
-        >
+    <div *ngFor="let cajon of estacionamiento" class="cajon btn btn-info" [class.ocupado]="cajon.estatus === 'ocupado'">
         {{ cajon.clave }}
     </div>
 </div>
