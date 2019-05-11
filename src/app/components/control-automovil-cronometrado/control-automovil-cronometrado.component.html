@@ -1,27 +1,15 @@
 <h3>No. de autos: {{automoviles.length}}</h3>
 
+<div class="timer">
+  <span>
+    CRONOMETRO<br>
+    <strong>{{cronometro}}</strong>
+  </span>
+</div>
+
 <div *ngFor="let auto of automoviles">
-  <div id="paleta-indicadores">
-    <div>
-      <span class="indicador disponible"></span>
-      <p>Cajón de estacionamiento disponible.</p>
-    </div>
-
-    <div>
-      <span class="indicador asignado"></span>
-      <p>Cajón automaticamente asignado.</p>
-    </div>
-
-    <div>
-      <span class="indicador ocupado"></span>
-      <p>Cajón ocupado. No se puede seleccionar.</p>
-    </div>
-
-    <div>
-      <span class="indicador ocupadoAuto"></span>
-      <p>Cajón actualmente usado.</p>
-    </div>
-  </div>
+  <hr class="mb-2">
+  <h4>{{ auto.clave }}</h4>
 
   <div id="panel-estacionamiento-auto" class="mb-2">
     <div *ngFor="let cajon of estacionamiento" class="cajon btn btn-info"

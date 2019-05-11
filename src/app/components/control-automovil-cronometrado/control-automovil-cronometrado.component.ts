@@ -14,6 +14,8 @@ export class ControlAutomovilCronometradoComponent implements OnInit, OnDestroy 
   public automoviles = [];
   public estacionamiento = [];
 
+  public cronometro: string = '00:00:00';
+
   constructor(
     public api: ApiService,
     public templateService: TemplateService,
@@ -28,22 +30,35 @@ export class ControlAutomovilCronometradoComponent implements OnInit, OnDestroy 
 
     this.timer.start();
     this.timer.addEventListener('secondTenthsUpdated', () => {
+      this.cronometro = this.timer.getTimeValues().toString(['hours', 'minutes', 'seconds']);
+
       const segundos: number = this.timer.getTimeValues().seconds;
 
+      // Cada 3 segundos llega un nuevo auto
       if (segundos % 3 === 0) {
-        // Creando proceso asincrono
-        (async () => {
-          // Creando auto
-          const { auto } = <any>(await this.api.addAuto().toPromise());
-          this.automoviles.push(auto);
+        // Revisa si estacionamiento tiene lugar
+        const cjs_disp = this.estacionamiento.filter(cjn => cjn.estatus !== 'ocupado');
+        if (cjs_disp.length > 0) {
+          // Creando proceso asincrono
+          (async () => {
+            try {
+              // Creando auto
+              const { auto } = <any>(await this.api.addAuto().toPromise());
+              this.automoviles.push(auto);
 
-          // Ocupar cajón
-          const cajon_seleccionado = this.estacionamiento.find(cjn => cjn.clave === auto.cajonAsignado);
-          const { cajon } = <any>(await this.api.ocuparCajonEstacionamiento(auto, cajon_seleccionado).toPromise());
-          const idx = this.estacionamiento.indexOf(cajon_seleccionado);
-          this.estacionamiento[idx] = cajon;
-          this.actualizaEstacionamiento(cajon);
-        })();
+              // Ocupar cajón
+              const cajon_seleccionado = this.estacionamiento.find(cjn => cjn.clave === auto.cajonAsignado);
+              const { cajon } = <any>(await this.api.ocuparCajonEstacionamiento(auto, cajon_seleccionado).toPromise());
+              const idx = this.estacionamiento.indexOf(cajon_seleccionado);
+              this.estacionamiento[idx] = cajon;
+
+              // Actualiza panel de estacionamiento
+              this.actualizaEstacionamiento(cajon);
+            } catch (err) {
+              console.log('El cajon está siendo ocupado, volviendo a buscar');
+            }
+          })();
+        }
       }
     });
   }
