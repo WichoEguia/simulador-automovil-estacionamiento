@@ -9,7 +9,7 @@ const routes: Routes = [
     { path: 'control-automovil-cronometrado', component: ControlAutomovilCronometradoComponent },
     { path: 'control-automovil-manual', component: ControlAutomovilComponent },
     { path: 'panel-estacionamiento', component: PanelEstacionamientoComponent },
-    { path: '**', pathMatch: 'full', redirectTo: '/control-automovil' }
+    { path: '**', pathMatch: 'full', redirectTo: '/panel-estacionamiento' }
 ];
 
 @NgModule({

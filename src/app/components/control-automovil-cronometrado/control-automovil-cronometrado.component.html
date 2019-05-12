@@ -12,12 +12,11 @@
   <h4>{{ auto.clave }}</h4>
 
   <div id="panel-estacionamiento-auto" class="mb-2">
-    <div *ngFor="let cajon of estacionamiento" class="cajon btn btn-info"
-      [class.asignado]="cajon.clave === auto.cajonAsignado" [ngClass]="{
-                                      'seleccionado': cajon.estatus === 'seleccionado',
-                                      'ocupado': cajon.estatus === 'ocupado',
-                                      'ocupadoAuto': cajon.ocupante === auto.clave
-                                  }">
+    <div *ngFor="let cajon of estacionamiento" class="cajon btn btn-info" [ngClass]="{
+        'seleccionado': cajon.estatus === 'seleccionado',
+        'ocupado': cajon.estatus === 'ocupado',
+        'ocupadoAuto': cajon.ocupante === auto.clave
+      }">
       {{ cajon.clave }}
     </div>
   </div>

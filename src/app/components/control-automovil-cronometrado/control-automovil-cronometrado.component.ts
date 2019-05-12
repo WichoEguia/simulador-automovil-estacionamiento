@@ -49,11 +49,25 @@ export class ControlAutomovilCronometradoComponent implements OnInit, OnDestroy 
               // Ocupar cajón
               const cajon_seleccionado = this.estacionamiento.find(cjn => cjn.clave === auto.cajonAsignado);
               const { cajon } = <any>(await this.api.ocuparCajonEstacionamiento(auto, cajon_seleccionado).toPromise());
-              const idx = this.estacionamiento.indexOf(cajon_seleccionado);
-              this.estacionamiento[idx] = cajon;
+              const idx_cajon = this.estacionamiento.indexOf(cajon_seleccionado);
+              this.estacionamiento[idx_cajon] = cajon;
+              const idx_auto = this.estacionamiento.indexOf(auto);
+              this.automoviles[idx_auto] = auto;
 
               // Actualiza panel de estacionamiento
               this.actualizaEstacionamiento(cajon);
+
+              // Obtener numero aleatorio entre 5 y 10
+              // para establecer el tiempo que el auto ocupa el cajón
+              const duracion = Math.floor(Math.random() * 5) + 5;
+              setTimeout(async () => {
+                // Dejar el cajon cuando el tiempo que ocupa el auto termina
+                let cajon_sale = await this.api.dejarCajonEstacionamiento(auto, cajon).toPromise();
+                cajon_sale = (<any>cajon_sale).cajon;
+
+                // Actualiza panel de estacionamiento
+                this.actualizaEstacionamiento(cajon_sale);
+              }, duracion * 1000);
             } catch (err) {
               console.log('El cajon está siendo ocupado, volviendo a buscar');
             }
